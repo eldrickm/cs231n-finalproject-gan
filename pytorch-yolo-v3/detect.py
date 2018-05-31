@@ -51,7 +51,7 @@ def arg_parse():
     
     
     parser = argparse.ArgumentParser(description='YOLO v3 Detection Module')
-   
+    
     parser.add_argument("--images", dest = 'images', help = 
                         "Image / Directory containing images to perform detection upon",
                         default = "imgs", type = str)
@@ -277,15 +277,35 @@ if __name__ ==  '__main__':
         img = results[int(x[0])]
         cls = int(x[-1])
         label = "{0}".format(classes[cls])
-        color = (0,0,0) #random.choice(colors)
+        # color = (0,0,0) #random.choice(colors)
+        color = random.choice(colors)
+        # if label == "person":
+        #     cv2.rectangle(img, c1, c2,color, -1)
+        
+        # mask = img.copy()
         if label == "person":
-          cv2.rectangle(img, c1, c2,color, -1)
-        #t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 1 , 1)[0]
-        #c2 = c1[0] + t_size[0] + 3, c1[1] + t_size[1] + 4
-        #cv2.rectangle(img, c1, c2, color, -1)
-        #cv2.putText(img, label, (c1[0], c1[1] + t_size[1] + 4), cv2.FONT_HERSHEY_PLAIN, 1, [225,255,255], 1)
+            # Create a new masked img
+            height,width,depth = img.shape
+            mask_color = (255,255,255)
+            mask = np.zeros((height, width), np.uint8)
+            
+            cv2.rectangle(mask,c1, c2, mask_color, -1)
+            masked_data = cv2.bitwise_and(img, img, mask=mask)
+#             cv2.imshow("masked", masked_data)
+            
+#             cv2.rectangle(mask, c1, c2, mask_color, -1) ## white mask
+            cv2.imwrite( "/home/JMak/finalproject/cs231n-finalproject-gan/pytorch-yolo-v3/det/test.jpg", mask);
+
+        
+        t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 1 , 1)[0]
+        c2 = c1[0] + t_size[0] + 3, c1[1] + t_size[1] + 4
+        cv2.rectangle(img, c1, c2, color, -1)
+        cv2.putText(img, label, (c1[0], c1[1] + t_size[1] + 4), cv2.FONT_HERSHEY_PLAIN, 1, [225,255,255], 1)
+        
+        
+        
         return img
-    
+        # return mask
     
             
     list(map(lambda x: write(x, im_batches, orig_ims), output))

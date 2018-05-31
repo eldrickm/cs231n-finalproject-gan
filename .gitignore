@@ -1,1 +1,7 @@
 *.weights
+*.jpg
+/WGAN/cocoapi
+*.json
+/WGAN/inpainting/annotations_trainval2014.zip
+/WGAN/inpainting/annotations_traintest2014.zip
+*.png

@@ -17,7 +17,7 @@ In /inpainting/annotations
 Fist Time Install cocoapi + Create Conda Environment (if not built already)
 - git clone https://github.com/cocodataset/cocoapi.git
 - conda create -n cs231n python=3.6 anaconda
-- conda activate cs231n
+- source activate cs231n
 - cd cocoapi/PythonAPI
 - python setup.py install
 

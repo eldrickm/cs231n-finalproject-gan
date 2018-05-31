@@ -4,7 +4,8 @@ Setup
 - wget https://pjreddie.com/media/files/yolov3.weights
 
 32 x 32 Downsampled MS COCO (eventually use full size 2017 data)
-- cd WGAN/inpainting
+- sudo rm -R WGAN/inpainting
+- cd WGAN
 - wget http://lisaweb.iro.umontreal.ca/transfert/lisa/datasets/mscoco_inpaiting/inpainting.tar.bz2 
 - tar xvjf inpainting.tar.bz2
 should have two folders "train2014" and "val2014"

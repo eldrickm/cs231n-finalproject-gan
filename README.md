@@ -19,6 +19,11 @@ Fist Time Install cocoapi + Create Conda Environment (if not built already)
 - conda create -n cs231n python=3.6 anaconda
 - source activate cs231n
 - cd cocoapi/PythonAPI
+- make
+- sudo make install
+- sudo python setup.py install
+
+
 - python setup.py install
 
 Afterwards to run notebook (always run)

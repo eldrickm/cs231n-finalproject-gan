@@ -4,12 +4,12 @@ Setup
 - wget https://pjreddie.com/media/files/yolov3.weights
 
 32 x 32 Downsampled MS COCO (eventually use full size 2017 data)
-- cd inpainting
+- cd WGAN/inpainting
 - wget http://lisaweb.iro.umontreal.ca/transfert/lisa/datasets/mscoco_inpaiting/inpainting.tar.bz2 
 - tar xvjf inpainting.tar.bz2
 should have two folders "train2014" and "val2014"
 
-- cd inpainting/annotations
+- cd WGAN/inpainting/annotations
 - wget http://images.cocodataset.org/annotations/annotations_trainval2014.zip
 
 Fist Time Install cocoapi + Create Conda Environment (if not built already)

@@ -1,7 +1,5 @@
 ![kith](https://github.com/eldrickm/cs231n-finalproject-gan/blob/master/hUNAo-1.png)
 
-YIKES HERE WE GO AGAN
-JMak testing
 Setup
 - wget https://pjreddie.com/media/files/yolov3.weights
 
@@ -15,14 +13,15 @@ In /inpainting/annotations
 - wget http://images.cocodataset.org/annotations/annotations_trainval2014.zip
 
 Fist Time Install cocoapi + Create Conda Environment (if not built already)
+- cd WGAN 
 - git clone https://github.com/cocodataset/cocoapi.git
 - conda create -n cs231n python=3.6 anaconda
 - source activate cs231n
 - conda install setuptools
--- cd cocoapi/PythonAPI
--- make
--- sudo make install
--- sudo python setup.py install
+- cd cocoapi/PythonAPI
+- make
+- sudo make install
+- sudo python setup.py install
 
 - python setup.py install
 

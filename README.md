@@ -1,3 +1,5 @@
+![kith](https://github.com/eldrickm/cs231n-finalproject-gan/blob/master/hUNAo-1.png)
+
 YIKES HERE WE GO AGAN
 JMak testing
 Setup

@@ -10,7 +10,8 @@ Setup
 - tar xvjf inpainting.tar.bz2
 should have two folders "train2014" and "val2014"
 
-- cd WGAN/inpainting/annotations
+- mkdir annotations
+- WGAN/inpainting/annotations
 - wget http://images.cocodataset.org/annotations/annotations_trainval2014.zip
 
 Fist Time Install cocoapi + Create Conda Environment (if not built already)

@@ -1,10 +1,10 @@
-# IFT-6266 Class Project
+# CS 231N Final Project
 
 ## Conditional Image Generation - Inpainting with MSCOCO
 
 ### Introduction
 
-I took a pretty standard approach to solving the problem of inpainting an image. Given a 64 x 64 image from MSCOCO, with it's center (32 x 32) masked out, I built a fully convolutional architecture that attempts to predict the center with an L2 reconstruction loss + a Wasserstein GAN (WGAN) objective. Some relevant literature that I used when building this model was
+Given a 64 x 64 image from MSCOCO, with it's center (32 x 32) masked out, fully convolutional architecture that attempts to predict the center with an L2 reconstruction loss + a Wasserstein GAN (WGAN) objective.
 
 * Convolutional autoencoders with an L2 reconstruction objective - https://pdfs.semanticscholar.org/1c6d/990c80e60aa0b0059415444cdf94b3574f0f.pdf
 * Mixing an L2 reconstruction objective with a GAN objective was presented in Context Encoders: Feature Learning by Inpainting - https://arxiv.org/abs/1604.07379. 
@@ -84,37 +84,6 @@ When using captions, I modified my generator to downsample all the way to 1 x 1 
 - Optimizer - ADAM for both the generator and discriminator with a learning rate of 2e-3
 - Discriminator weight clamping -  (-0.03, 0.03) if discriminator is trained 5 times for every generator update else (-0.05, 0.05). 
 - Batch size - 32
-
-### Results
-
-In this section, I will present some of my cherry-picked inpainted images. All samples are inpaintings of the MSCOCO dev set.
-
-#### L2
-
-![sample_1](/images/l2_epoch_10_samples.png)
-![sample_2](/images/l2_epoch_13_samples.png)
-![sample_3](/images/l2_epoch_27_samples.png)
-![sample_4](/images/l2_epoch_30_samples.png)
-![sample_5](/images/l2_epoch_35_samples.png)
-![sample_6](/images/l2_epoch_37_samples.png)
-
-#### L2 + WGAN
-
-![sample_1](/images/gan_epoch_22_samples.png)
-![sample_2](/images/gan_epoch_27_samples.png)
-![sample_3](/images/gan_epoch_50_samples.png)
-![sample_4](/images/gan_epoch_54_samples.png)
-![sample_5](/images/gan_epoch_63_samples.png)
-![sample_6](/images/gan_epoch_57_samples.png)
-
-#### L2 + WGAN + Caption
-
-![sample_1](/images/gan_caption_epoch_25_samples.png)
-![sample_2](/images/gan_caption_epoch_32_samples.png)
-![sample_3](/images/gan_caption_epoch_34_samples.png)
-![sample_4](/images/gan_caption_epoch_35_samples.png)
-![sample_5](/images/gan_caption_epoch_36_samples.png)
-![sample_6](/images/gan_caption_epoch_17_samples.png)
 
 ### Conclusion & Discussion
 

@@ -17,7 +17,7 @@ Fist Time Install cocoapi + Create Conda Environment (if not built already)
 - cd WGAN
 - git clone https://github.com/cocodataset/cocoapi.git
 - conda create -n cs231n python=3.6 anaconda
-- conda activate cs231n
+- source activate cs231n
 - cd cocoapi/PythonAPI
 - make
 - sudo make install

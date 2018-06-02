@@ -23,5 +23,11 @@ Fist Time Install cocoapi + Create Conda Environment (if not built already)
 - sudo make install
 - python setup.py install
 
+make sure to activate conda and then reinstall pytorch using 
+conda install pytorch torchvision -c pytorch
+
+
 Afterwards to run notebook (always run)
 - conda activate cs231n
+
+it may not work on jupyter labs, you might have to boot up the original way

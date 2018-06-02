@@ -24,7 +24,7 @@ Fist Time Install cocoapi + Create Conda Environment (if not built already)
 - python setup.py install
 
 make sure to activate conda and then reinstall pytorch using 
-conda install pytorch torchvision -c pytorch
+- conda install pytorch torchvision -c pytorch
 
 
 Afterwards to run notebook (always run)

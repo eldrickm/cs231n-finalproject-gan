@@ -5,3 +5,5 @@
 /WGAN/inpainting/annotations_trainval2014.zip
 /WGAN/inpainting/annotations_traintest2014.zip
 *.png
+/WGAN/.ipynb_checkpoints/
+/WGAN/inpainting.tar.bz2

@@ -9,6 +9,8 @@
 /WGAN/inpainting.tar.bz2
 /WGAN/inpainting/cocorealval2014.zip
 /WGAN/inpainting/cocorealtrain2014.zip
+/WGAN/inpainting/cocorealtrain2014/
 /WGAN/inpainting/samples/
 /WGAN/inpainting/annotations/
-/WGAN/inpainting/halflrstate
+/WGAN/inpainting/ce_state
+/WGAN/inpainting/wgan_307_state

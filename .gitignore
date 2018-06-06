@@ -14,3 +14,4 @@
 /WGAN/inpainting/annotations/
 /WGAN/inpainting/ce_state
 /WGAN/inpainting/wgan_307_state
+/WGAN/inpainting/painter_*

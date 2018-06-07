@@ -15,3 +15,8 @@
 /WGAN/inpainting/ce_state
 /WGAN/inpainting/wgan_307_state
 /WGAN/inpainting/painter_*
+/WGAN/inpainting/person_samples/
+/WGAN/inpainting/vehicle_samples/
+/WGAN/inpainting/*.zip
+/WGAN/inpainting/food_samples/
+/WGAN/inpainting/full_lr_overall

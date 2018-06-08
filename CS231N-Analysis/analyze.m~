@@ -1,0 +1,114 @@
+% clc; close all; clear;
+% w = warning ('off','all');
+% 
+% base_name='samples/epoch_';
+% end_name='_samples.png';
+% 
+% num_rows = 5;
+% num_cols = 2;
+% num_epoch = 300;
+% 
+% psnr_list = zeros(1,num_epoch+1);
+% mssim_list = zeros(1,num_epoch+1);
+% mse_list = zeros(1,num_epoch+1);
+% 
+% psnr_list(1) = 0;
+% mssim_list(1) = 0;
+% mse_list(1) = 0;
+% for k=2:num_epoch+1
+%     % get image for each epoch
+%     filename =[base_name, num2str(k), end_name];
+%     total_image = im2double(imread(filename));
+%     [h, w, c] = size(total_image);
+%     
+%     % for each epoch
+%     PSNR = 0;
+%     SSIM = 0;
+%     MSE = 0;
+%     for j = 0:num_rows-1
+%         for i = 0:num_cols-1
+% 
+%             rec = total_image(3+(j*130):130+(j*130),...
+%                                    3+(i*130*2):130+(i*130*2), :);
+%             ref  = total_image(3+(j*130):130+(j*130), ...
+%                                     133+(i*130*2):260+(i*130*2), :);
+%             rec = rec(32:96, 32:96, :);
+%             ref = ref(32:96, 32:96, :);  
+%             
+%             PSNR = PSNR + psnr(rec, ref, max(rec(:)));
+%             SSIM = SSIM + ssim(rec, ref);            
+%             MSE = MSE+immse(rec,ref);
+%         end
+%     end
+% 
+%     % 10 pairs per epoch
+%     psnr_list(k) = PSNR/10;
+%     mssim_list(k) = SSIM/10;
+%     mse_list(k) = MSE/10;
+% end
+% 
+% figure;
+% subplot(1, 3, 1);
+% plot(psnr_list);
+% title('PSNR vs Epoch');
+% xlim([0 300.0])
+%    
+% subplot(1, 3, 2);
+% plot(mssim_list)
+% title('SSIM vs Epoch');
+% xlim([0 300.0])
+% 
+% subplot(1, 3, 3);
+% plot(mse_list)
+% title('MSE vs Epoch');
+% xlim([0 300.0])
+clc; close all; clear;
+w = warning ('off','all');
+
+base_name='paint/';
+end_name='.png';
+
+num_cols = 7;
+num_rows = 10;
+num_img = 5;
+
+paint_names = {'General', 'Animal', 'Food', 'Furniture', 'Outdoor', 'Person', 'Vehicle'};
+for k=0:num_img
+    % get image for each epoch
+    filename =[base_name, num2str(k), end_name];
+    total_image = im2double(imread(filename));
+    [h, w, c] = size(total_image);
+    
+    for j = 0:num_rows-1
+        SSIM_MAX = 0;
+        i_max_ssmi = 0;
+        max_image = 0;
+        for i = 0:num_cols-1
+            
+            rec = total_image(3+(j*130):130+(j*130),...
+                                   3+(i*130):130+(i*130), :);
+            ref  = total_image(3+(j*130):130+(j*130), ...
+                                    3+130*7:130*(8), :);
+                                
+%             rec = rec(32:96, 32:96, :);
+%             ref = ref(32:96, 32:96, :);  
+            
+%         PSNR = psnr(rec, ref, max(rec(:)));
+%         MSE = immse(rec,ref);
+          SSIM = ssim(rec, ref);            
+
+            if SSIM > SSIM_MAX
+                SSIM_MAX = SSIM;
+                i_max_ssmi = i;
+            end 
+        end
+        
+        X = total_image(3+(j*130):130+(j*130), 3+(i_max_ssmi*130):130+(i_max_ssmi*130), :);
+        total_image(3+(j*130):130+(j*130), 3+(i_max_ssmi*130):130+(i_max_ssmi*130), :) = addborder(X, 10, [1, 1, 0], 'inside'); 
+        
+    end
+    save_base_name='output/painter_comp_';
+    save_end_name='.png';
+    filename =[save_base_name, num2str(k), save_end_name];
+    imwrite(total_image, filename);
+end

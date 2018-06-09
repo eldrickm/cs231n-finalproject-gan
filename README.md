@@ -1,5 +1,3 @@
-![kith](https://github.com/eldrickm/cs231n-finalproject-gan/blob/master/hUNAo-1.png)
-
 Setup
 - wget https://pjreddie.com/media/files/yolov3.weights
 
